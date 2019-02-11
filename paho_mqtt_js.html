@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.2/mqttws31.min.js"
+	type="text/javascript"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"
+	type="text/javascript"></script>
+<script type="text/javascript">
+	var wsbroker = "127.0.0.1"; //mqtt websocket enabled broker
+	var wsport = 15675 // port for above
+
+	var client = new Paho.MQTT.Client(wsbroker, wsport, "/ws", "myclientid_"
+			+ parseInt(Math.random() * 100, 10));
+
+	client.onConnectionLost = function(responseObject) {
+		console.log("connection lost: " + responseObject.errorMessage);
+	};
+
+	client.onMessageArrived = function(message) {
+		
+		obj = JSON.parse(message.payloadString);
+		
+		$.each(obj, function(key, value) {
+			
+			document.getElementById("pi0").innerHTML =
+				"Memory Usage: " + obj.mem_usage + "&nbsp;MB<br>" +
+				"Disk Usage: " + obj.disk_usage + "&nbsp;GB<br>" +
+				"CPU Load: " + obj.cpu_load + "&nbsp;%";
+			
+
+		});
+		
+		console.log(obj);
+
+	};
+
+	var options = {
+		timeout : 3,
+		keepAliveInterval : 1,
+		onSuccess : function() {
+			console.log("mqtt connected");
+			// Connection succeeded; subscribe to our topic, you can add multile lines of these
+			client.subscribe('pi/telemetry', {
+				qos : 1
+			});
+
+		},
+		onFailure : function(message) {
+			console.log("Connection failed: " + message.errorMessage);
+		}
+	};
+
+	function init() {
+
+		client.connect(options);
+
+	}
+</script>
+</head>
+<body onload="init();">
+<p id="pi0"></p>
+</body>
+</html>
