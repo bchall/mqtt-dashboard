@@ -33,7 +33,7 @@ var wsbroker = "127.0.0.1"; // mqtt websocket enabled broker
 var wsport = 15675 // port for above
 
 ### MQTT Topic
-client.subscribe('#', {
+client.subscribe('pi/telemetry', {
 			qos : 1
 		});
 
