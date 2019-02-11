@@ -14,8 +14,6 @@ Yet another JavaScript dashboard project for use with RabbitMQ MQTT
 * RabbitMQ 3.7.x
 * rabbitmq_web_mqtt
 * Eclipse Paho JavaScript Client
-* bootstrap.css
-* bootstrap-grid.css
 * Python (furture use for historical data)
 
 ## Payload
