@@ -7,7 +7,7 @@ Yet another JavaScript dashboard project for use with RabbitMQ MQTT
 * RabbitMQ 3.7.x
 * rabbitmq_web_mqtt
 * Eclipse Paho JavaScript Client
-* Python (furture use for historical data)
+* Python (future use for historical data)
 
 ## Recipe
 
