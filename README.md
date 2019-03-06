@@ -16,7 +16,7 @@ Yet another JavaScript dashboard project for use with RabbitMQ MQTT.  This proje
 * rabbitmq_web_mqtt
 * Eclipse Paho JavaScript Client
 * BASH
-* Python (furture use for historical data)
+* Python (future use for historical data)
 
 ## Payload
 
