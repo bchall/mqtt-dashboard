@@ -21,6 +21,7 @@ Yet another JavaScript dashboard project for use with RabbitMQ MQTT.  This proje
 ## Payload
 
 {
+	"host_name": "string",
 	"mem_usage": 0,
 	"disk_usage": 0,
 	"cpu_load": 0.00
