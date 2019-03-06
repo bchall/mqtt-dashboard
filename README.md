@@ -1,6 +1,6 @@
-# MQTT PI Dashboard
+# MQTT Dashboard
 
-Yet another JavaScript dashboard project for use with RabbitMQ MQTT
+Yet another JavaScript dashboard project for use with RabbitMQ MQTT.  This project requires Linux with the following prerequisites.
 
 ## Prerequisite
 
